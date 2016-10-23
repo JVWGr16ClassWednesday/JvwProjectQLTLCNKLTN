@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
                         <li><a href="Quanlytaikhoan.jsp">Quản lý tài khoản</a></li>
                         <li><a href="QuanLyDeTai.jsp">Quản lý đề tài</a></li>
                         <li><a href="KiemTraSaoChep.jsp">Kiểm tra sao chép</a></li>
-                        <li  class="active"><a href="SoSanh.jsp">So sánh</a></li>
+                        <li class="active"><a href="SoSanh.jsp">So sánh</a></li>
                         <li><a href="Loc.jsp">Lọc</a></li>
                     </ul>
                     <div style="padding-top:8px;">
@@ -38,40 +38,49 @@
             <div class="panel panel-default">
                 <div class="panel-heading">So sánh</div>
                 <div class="panel-body">
-                    <label>Nhập thông tin: </label>
-                    <textarea class="form-control input-lg" rows="5" id="nhap_abstract" placeholder="Nhập vào nội dung tóm tắt, hoặc phần abstract của đề tài. Nội dung tối đa là 300 chữ..."></textarea>
+                    <div class="input-group">
+                        <input type="file" />
+                        <button class="btn btn-primary">Upload</button>
+                    </div>
                     <br />
+                    <div class="input-group">
+                        <label>Phần trăm giống: </label>
+                        <input type="text"/> %
+                    </div>
                     <br />
                     <span class="input-group-btn">
                         <button class="btn btn-primary" type="button">Tìm kiếm</button>
                     </span>
+                    <br />
+                    
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Tên đề tài</th>
+                                    <th class="text-center">Loại đề tài</th>
+                                    <th class="text-center">Giáo viên hướng dẫn</th>
+                                    <th class="text-center">Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Phát triển ứng dụng đa nền tảng cho điện thoại di động</td>
+                                    <td class="text-center"> TLCN</td>
+                                    <td>Nguyễn Trần Thi Văn</td>
+                                    <td class="text-center"><a href="ChiTietDeTai.jsp">Chi tiết</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Phát triển ứng dụng đa nền tảng cho điện thoại di động</td>
+                                    <td class="text-center"> TLCN</td>
+                                    <td>Nguyễn Trần Thi Văn</td>
+                                    <td class="text-center"><a href="ChiTietDeTai.jsp">Chi tiết</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Tên đề tài</th>
-                            <th class="text-center">Loại đề tài</th>
-                            <th class="text-center">Giáo viên hướng dẫn</th>
-                            <th class="text-center">Chi tiết</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Phát triển ứng dụng đa nền tảng cho điện thoại di động</td>
-                            <td class="text-center"> TLCN</td>
-                            <td>Nguyễn Trần Thi Văn</td>
-                            <td class="text-center"><a href="KetQuaSoSanh.jsp">Chi tiết</a></td>
-                        </tr>
-                        <tr>
-                            <td>Phát triển ứng dụng đa nền tảng cho điện thoại di động</td>
-                            <td class="text-center"> TLCN</td>
-                            <td>Nguyễn Trần Thi Văn</td>
-                            <td class="text-center"><a href="KetQuaSoSanh.jsp">Chi tiết</a></td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
