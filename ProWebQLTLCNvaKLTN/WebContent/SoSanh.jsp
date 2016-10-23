@@ -44,7 +44,7 @@
                     </div>
                     <br />
                     <div class="input-group">
-                        <label>Phần trăm giống: </label>
+                        <label>Nhập phần trăm giống: </label>
                         <input type="text"/> %
                     </div>
                     <br />
