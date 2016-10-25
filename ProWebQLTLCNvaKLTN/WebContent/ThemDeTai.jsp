@@ -61,6 +61,10 @@
 		                            <input type="text" class="form-control" id="tendetai" required >
 		                        </div>
 		                        <div class="form-group">
+		                            <label for="inputlg">Mô tả đề tài:</label>
+		                            <textarea class="form-control" rows="5" id="motadt"></textarea>
+		                        </div>
+		                        <div class="form-group">
 		                            <label for="name">Loại đề tài :</label>
 		                            <input type="text" class="form-control" id="loaidetai" required >
 		                        </div>
@@ -74,11 +78,10 @@
 		                            <label for="name">Thành viên :</label>
 		                            <input type="text" class="form-control" id="thanhvien" required >
 		                            <label for="name">Mã SV :</label>
-		                            <input type="text" class="form-control" id="idtv" required >
-		
-		                            <input type="file" />
-		                            <button class="btn btn-primary">Upload</button>
+		                            <input type="text" class="form-control" id="masvtv" required >
+		                             
 		                        </div>
+		                        <a href="ThemSinhVien.jsp">Thêm sinh viên</a>
 		                        <div class="form-group">
 		                            <label for="name">Giáo Viên hướng dẫn :</label>
 		                            <input type="text" class="form-control" id="gvhd" required >

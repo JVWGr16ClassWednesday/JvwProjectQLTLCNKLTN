@@ -42,6 +42,10 @@
                             <input type="text" class="form-control" id="tendetai" required value="Phát triển website quản lý hội nghị khoa học">
                         </div>
                         <div class="form-group">
+		                     <label for="inputlg">Mô tả đề tài:</label>
+		                     <textarea class="form-control" rows="5" id="motadt"></textarea>
+		                </div>
+                        <div class="form-group">
                             <label for="name">Loại đề tài :</label>
                             <input type="text" class="form-control" id="loaidetai" required value="TLNC">
                         </div>
@@ -56,10 +60,8 @@
                             <input type="text" class="form-control" id="thanhvien" required value="nguyễn văn A">
                             <label for="name">Mã SV :</label>
                             <input type="text" class="form-control" id="idtv" required value="12110123">
-
-                            <input type="file" />
-                            <button class="btn btn-primary">Upload</button>
                         </div>
+                        <a href="ThemSinhVienGV.jsp">Thêm sinh viên</a>
                         <div class="form-group">
                             <label for="name">Giáo Viên hướng dẫn :</label>
                             <input type="text" class="form-control" id="gvhd" required value="Lê Văn Vinh">
