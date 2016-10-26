@@ -26,7 +26,7 @@
 	</style>
 </head>
 <body>
-	<from method="post" action="ThemDeTai.jsp" accept-charset="utf-8" id="formThemDTK"> 
+	<from method="post" action="ThemDeTai.jsp" accept-charset="utf-8" id="formThemDT"> 
 		<div class="container">
 		        <div class="row">
 		            <img src="header.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
@@ -81,7 +81,9 @@
 		                            <input type="text" class="form-control" id="masvtv" required >
 		                             
 		                        </div>
+		                        
 		                        <a href="ThemSinhVien.jsp">Thêm sinh viên</a>
+		                        
 		                        <div class="form-group">
 		                            <label for="name">Giáo Viên hướng dẫn :</label>
 		                            <input type="text" class="form-control" id="gvhd" required >
@@ -108,7 +110,7 @@
 		                            <button class="btn btn-primary">Upload</button>
 		                        </div>
 		                    </div>
-		                     <input type="hidden" name="isSuccess" value="1"/>
+		                    <input type="hidden" name="Success" value="1"/>
 		                    <div class="panel-footer">
 		                        <button class="btn btn-primary"  type="submit" data-toggle="modal" data-target="#modalthongbao">Lưu Thông tin</button>
 		                        <a href="" target="" class="btn btn-danger">Hủy</a>
@@ -119,7 +121,7 @@
 		    </div>
 	</from>
 	
-	<c:if test='${param.isSuccess=="1"}'>
+	<c:if test='${param.Success=="1"}'>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#modalthongbao').modal({backdrop: 'static', keyboard: false});
@@ -131,9 +133,10 @@
 	$(document).ready(function() {
 		//Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
 
-		$("#formThemDTK").validate({
+		$("#formThemDT").validate({
 			rules: {
 				tendetai: "required",
+				motadt: "required",
 				loaidetai: "required",
 				truongnhom: "required",
 				idnt: "required",
@@ -149,6 +152,7 @@
 			},
 			messages: {
 				tendetai: "vui lòng nhập tên đề tài",
+				motadt: "vui lòng nhập mô tả của đề tài",
 				loaidetai: "vui lòng nhập loại đề tài",
 				truongnhom: "vui lòng nhập tên trưởng nhóm",
 				idnt: "vui lòng nhập mã số sinh viên",
@@ -183,6 +187,8 @@
         </div>
     </div>
     <!-- End Modal Thông báo-->
+    
+    <!-- add footer -->
     <div class="container">
      <div class="row">
      </div>

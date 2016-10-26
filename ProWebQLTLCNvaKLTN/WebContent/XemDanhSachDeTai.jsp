@@ -87,7 +87,7 @@
         </div>
 
     </div>
-    <!-- Start Modal sửa tài khoản -->
+    <!-- Start Modal sửa thông tin đề tài -->
     <div class="modal fade" id="ChinhSuaDeTai" role="dialog">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -100,6 +100,10 @@
                         <label for="id">Tên đề tài:</label>
                         <input type="text" class="form-control" id="tendetai" required value="Phát triển website quản lý hội nghị khoa học">
                     </div>
+                    <div class="form-group">
+		                 <label for="inputlg">Mô tả đề tài:</label>
+		                 <textarea class="form-control" rows="5" id="motadt"></textarea>
+		            </div>
                     <div class="form-group">
                         <label for="name">Loại đề tài :</label>
                         <input type="text" class="form-control" id="loaidetai" required value="TLNC">
@@ -115,10 +119,8 @@
                         <input type="text" class="form-control" id="thanhvien" required value="nguyễn văn A">
                         <label for="name">Mã SV :</label>
                         <input type="text" class="form-control" id="idtv" required value="12110123">
-
-                        <input type="file" />
-                        <button class="btn btn-primary">Upload</button>
                     </div>
+                    <a href="ThemSinhVien.jsp">Thêm sinh viên</a>
                     <div class="form-group">
                         <label for="name">Giáo Viên hướng dẫn :</label>
                         <input type="text" class="form-control" id="gvhd" required value="Lê Văn Vinh">
@@ -163,7 +165,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Bạn có muốn xóa tài khoản này</label>
+                        <label>Bạn có muốn xóa đề tài này</label>
                     </div>
                 </div>
                 <div class="modal-footer">
