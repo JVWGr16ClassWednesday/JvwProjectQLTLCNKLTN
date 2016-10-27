@@ -59,15 +59,15 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label for="id">Mã GV/ Mã SV</label>
-                            <input type="text" class="form-control" id="id" required>
+                            <input type="text" class="form-control" id="id" name="id" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Họ tên</label>
-                            <input type="text" class="form-control" id="name" required>
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <label>Quyền hệ thống</label>
                         <br />
@@ -110,7 +110,7 @@
 				},
 			},
 			messages: {
-				id: "Vui lòng nhập họ",
+				id: "Vui lòng nhập mã SV hoặc mã GV",
 				name: "Vui lòng nhập tên",
 				email: "Vui lòng nhập Email"
 			}
