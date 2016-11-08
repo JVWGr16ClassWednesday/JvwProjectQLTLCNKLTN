@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,7 +23,7 @@
 	</style>
 </head>
 <body>
-	<form  action="" method="post" id="FrmDN" novalidate="novalidate">
+	<form  action="KiemTraDangNhap.jsp" method="post" id="FrmDN" novalidate="novalidate">
 		<div class="container">
         <div class="row">
             <img src="header.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
@@ -46,8 +48,14 @@
                     <button type="submit" class="btn btn-primary" >Đăng nhập </button>
                     <a class="btn btn-danger" href="TrangChu.jsp">Hủy</a>
                 </div>
+                <font color="red">
+		        	<c:if test="${not empty param.errMsg}">
+		            <c:out value="${param.errMsg}" />
+		            </c:if>
+		        </font>
             </div>
         </div>
+        
     	</div>
 	</form>
     
@@ -75,7 +83,7 @@
         	txtTenTaiKhoanDN: "required",
             txtMatKhauDN: {
                 required: true,
-                minlength: 8
+                minlength: 3
             },
         },
         
@@ -84,7 +92,7 @@
         	txtTenTaiKhoanDN: "Bạn chưa nhập tên đăng nhập",
             txtMatKhauDN: {
                 required: "Bạn chưa nhập mật khẩu",
-                minlength: "Mật khẩu ít nhất là 8 ký tự"
+                minlength: "Mật khẩu ít nhất là 3 ký tự"
             }
         },
         

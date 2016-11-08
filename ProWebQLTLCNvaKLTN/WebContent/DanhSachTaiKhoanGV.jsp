@@ -1,5 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+<sql:setDataSource
+	driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost/projectweb"
+	user="root"
+	password="root"/>
+<sql:query var="items" sql="SELECT id, username FROM users WHERE accessright='2'"/>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,45 +53,20 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Mã GV</th>
-                                    <th>Họ Tên</th>
+                                    <th>ID</th>
                                     <th>Email</th>
-                                    <th>Tên Đăng Nhập</th>
-                                    <th>Mật Khẩu</th>
                                     <th>Hiệu Chỉnh</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>GV10112</td>
-                                    <td>Nguyễn Trần Thi Văn</td>
-                                    <td>abs@gmail.com</td>
-                                    <td>GV10112</td>
-                                    <td>GV10112</td>
-                                    <td class="text-center">
+                                <c:forEach items="${items.rowsByIndex}" var="row">		 
+								<tr>
+									<c:forEach items="${row}" var="col">			
+										<td>${col}</td>			
+									</c:forEach>	
+									<td class="text-center">
                                         <button type="button" class="btn btn-warning btn-xs">
                                             <span class="fa fa-unlock" aria-hidden="true"></span> Khóa
-                                        </button>
-                                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span> Sửa
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalXoa">
-                                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>GV10122</td>
-                                    <td>Trương Thị Ngọc Phượng</td>
-                                    <td>abs@gmail.com</td>
-                                    <td>GV10122</td>
-                                    <td>GV10122</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-warning btn-xs">
-                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Mở khóa
                                         </button>
                                         <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
                                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
@@ -90,10 +74,10 @@
                                         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalXoa">
                                             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
                                         </button>
-                                    </td>
-                                </tr>
-
-                            </tbody>
+                                    </td>						
+					    		</tr>
+							</c:forEach>
+                          </tbody>
                         </table>
                     </div>
                 </div>

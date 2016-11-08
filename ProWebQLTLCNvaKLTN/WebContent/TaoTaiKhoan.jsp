@@ -56,46 +56,64 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading text-center">Tạo mới tài khoản</div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="id">Mã GV/ Mã SV</label>
-                            <input type="text" class="form-control" id="id" name="id" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Họ tên</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <label>Quyền hệ thống</label>
-                        <br />
-                        <br />
-                        <label><input type="checkbox" value="" name="Check_Quyen">Quyền Giảng Viên</label>
-                        <br />
-                        <br />
-                        <label><input type="checkbox" name="Check_Quyen" value="">Quyền Sinh Viên</label>
-                    </div>
-                    <input type="hidden" name="isSuccess" value="1"/>
-                    <div class="panel-footer text-center">
-                     	<!--<a href="" target="" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Tạo tài khoản</a> -->                     	
-                     	<button id="TaoTK" class="btn btn-primary" type="submit">Tạo tài khoản</button>
-                        <a href="Quanlytaikhoan.jsp" target="" class="btn btn-danger">Hủy</a>
-                    </div>
+	                    <div class="panel-body">
+	                        <div class="form-group">
+	                            <label for="id">Mã GV/ Mã SV</label>
+	                            <input type="text" class="form-control" id="id" name="id" required>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="name">Họ tên</label>
+	                            <input type="text" class="form-control" id="name" name="name" required>
+	                        </div>
+	                        <div class="form-group">
+	                            <label for="email">Email</label>
+	                            <input type="email" class="form-control" id="email" name="email" required>
+	                        </div>
+	                         <div class="form-group">
+	                            <label for="name">Mật khẩu</label>
+	                            <input type="password" class="form-control" id="password" name="password" required>
+	                        </div>
+	                        <label>Quyền hệ thống</label>
+	                        <br />
+	                        <br />
+	                        <label><input type="radio" value="1" name="Check_Quyen" checked>&nbsp;Quyền Giảng Viên</label>
+	                        <br />
+	                        <br />
+	                        <label><input type="radio" value="2" name="Check_Quyen" value="">&nbsp;Quyền Sinh Viên</label>
+	                    </div>
+	                    <input type="hidden" name="isSuccess" value="1"/>
+	                    <div class="panel-footer text-center">
+	                     	<!--<a href="" target="" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Tạo tài khoản</a> -->                     	
+	                     	<button id="TaoTK" class="btn btn-primary" type="submit">Tạo tài khoản</button>
+	                        <a href="Quanlytaikhoan.jsp" target="" class="btn btn-danger">Hủy</a>
+	                    </div>
                 </div>
             </div>
         </div>
     </div>
 	</form>
-	
 	<c:if test='${param.isSuccess=="1"}'>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#myModal').modal({backdrop: 'static', keyboard: false});
-		})
-	</script>
+
+	<%@ page import ="java.sql.*" %>
+	<%
+	    String id = request.getParameter("id");    
+	    String name = request.getParameter("name");
+	    String email = request.getParameter("email");
+	    String role = request.getParameter("Check_Quyen");
+	    String password =request.getParameter("password");
+	    Class.forName("com.mysql.jdbc.Driver");
+	    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectweb",
+	            "root", "root");
+	    Statement st = con.createStatement();
+	    //ResultSet rs;
+	    int i = st.executeUpdate("insert into users(id, username, password, myname, accessright) values ('" + id + "','" + email + "','" + password + "','" + name + "','" + role + "')");
+	    if (i > 0) {
+	        out.print("<script type='text/javascript'>$(document).ready(function() {$('#myModal').modal({backdrop: 'static', keyboard: false});})</script>");
+	    }
+	%>
+		
 	</c:if>
+	
 	<script type="text/javascript">
 	$(document).ready(function() {
 		//Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này

@@ -1,3 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<sql:setDataSource
+	driver="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost/projectweb"
+	user="root"
+	password="root"/>
+<sql:query var="items" sql="SELECT id, username FROM users"/>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,6 +45,9 @@
             </nav>
         </div>
         <div class="row">
+        
+        <!-- Kết nối database đẩy dữ liệu từ bảng account lên -->
+       
             <div class="panel panel-default">
                 <div class="panel-heading">Danh sách tài khoản Sinh Viên</div>
                 <div class="panel-body">
@@ -44,24 +55,18 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Mã SV</th>
-                                    <th class="text-center">Họ Tên</th>
+                                    <th class="text-center">ID</th>
                                     <th class="text-center">Email</th>
-                                    <th class="text-center">Tên Đăng Nhập</th>
-                                    <th class="text-center">Mật Khẩu</th>
                                     <th class="text-center">Hiệu chỉnh</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">12110247</td>
-                                    <td>Trịnh Thị Thanh Xuân</td>
-                                    <td>xuan@gmail.com</td>
-                                    <td>12110247</td>
-                                    <td>12110247</td>
-                                    <td class="text-center">
+                            <c:forEach items="${items.rowsByIndex}" var="row">		 
+								<tr>
+									<c:forEach items="${row}" var="col">			
+										<td>${col}</td>			
+									</c:forEach>	
+									<td class="text-center">
                                         <button type="button" class="btn btn-warning btn-xs">
                                             <span class="fa fa-unlock" aria-hidden="true"></span> Khóa
                                         </button>
@@ -71,28 +76,9 @@
                                         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalXoa">
                                             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
                                         </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center">12110157</td>
-                                    <td>Bùi Thị Thúy Quỳnh</td>
-                                    <td>quynh@gmail.com</td>
-                                    <td>12110157</td>
-                                    <td>12110157</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-warning btn-xs">
-                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Mở khóa
-                                        </button>
-                                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalXoa">
-                                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
-                                        </button>
-                                    </td>
-                                </tr>
-
+                                    </td>						
+					    		</tr>
+							</c:forEach>
                             </tbody>
                         </table>
                     </div>

@@ -2,9 +2,8 @@
     prefix="c"
     uri="http://java.sun.com/jsp/jstl/core" 
 %>
-
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,10 +13,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
-    <!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>-->
-    
+    <script src="js/jquery.validate.min.js"></script> 
     <style type="text/css">
 		label {
 			display: inline-block;

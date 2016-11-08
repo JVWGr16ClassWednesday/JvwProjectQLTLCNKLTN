@@ -44,7 +44,7 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
+                                    <th>ID</th>
                                     <th>Mã GV</th>
                                     <th>Họ Tên</th>
                                     <th>Email</th>
