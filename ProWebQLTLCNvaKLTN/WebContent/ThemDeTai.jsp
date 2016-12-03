@@ -1,8 +1,11 @@
-<%@ taglib
-    prefix="c"
-    uri="http://java.sun.com/jsp/jstl/core" 
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="myPackage.ConnectionDB"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -47,7 +50,8 @@
                 </div>
             </nav>
         </div>
-		<form action="ThemDeTai.jsp" method="post" id="FrmThemDT" novalidate="novalidate" accept-charset="utf-8">
+		<form action="UploadFileServlet" method="post" id="FrmThemDT" novalidate="novalidate" enctype="multipart/form-data">
+		
 			<div class="row">
 				<div class="col-sm-8 col-lg-offset-2">
 					<div class="panel panel-primary">
@@ -64,8 +68,6 @@
 					            </div>
 
 			                    <div class="form-group">
-			                        <!--<label for="name">Loại đề tài :</label>-->
-			                        <!--<input type="text" class="form-control" id="loaidetai" required >-->
 			                        <label for="selloaidt">Loại đề tài:</label>
 										<select class="form-control" id="selloaidt" name="selloaidt">
 											<option>Tiểu luận chuyên ngành</option>
@@ -88,9 +90,7 @@
 			                        <label for="name">Mã SV :</label>
 			                        <input type="text" class="form-control" id="masvtv" name="masvtv" required >
 			                    </div>
-	                    
 			                    <a href="ThemSinhVien.jsp">Thêm sinh viên</a>
-			                    
 			                    <div class="form-group">
 			                        <label for="name">Giáo Viên hướng dẫn :</label>
 			                        <input type="text" class="form-control" id="gvhd" name="gvhd" required >
@@ -114,18 +114,15 @@
 			                        <label for="name">Năm :</label>
 			                        <input type="text" class="form-control" id="year" name="year" required>
 			                    </div>
-
-			                    <div class="form-group">
+			                   <div class="form-group">
 			                        <label for="name">Tài liệu đính kèm:</label>
 			                        <a href="">Link liên kết tới nơi chứa tài liệu</a>
-			                        <input type="file" />
-			                        <button class="btn btn-primary">Upload</button>
+			                        <input type="file" name="file" >
 			                    </div>
 			        		</div>
 			        	<input type="hidden" name="isSuccess" value="1"/>
 		                <div class="panel-footer">
-		                    <!-- <button class="btn btn-primary"  type="submit" data-toggle="modal" data-target="#modalthongbao" >Lưu Thông tin</button> -->
-		                    <button  id="themDT" class="btn btn-primary"  type="submit" >Lưu Thông tin</button>
+		                    <input  id="themDT" name="themDT" class="btn btn-primary"  type="submit" value="Lưu Thông tin">
 		                    <a href="XemDanhSachDeTai.jsp" target="" class="btn btn-danger pull-right">Hủy</a>
 		                </div>
 	    			</div>

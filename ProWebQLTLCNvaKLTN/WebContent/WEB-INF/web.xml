@@ -297,4 +297,26 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>sampleServlet</servlet-name>
+    <servlet-class>myPackage.CheckRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sampleServlet</servlet-name>
+    <url-pattern>/CheckRegisterServlet/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FileUploadHandler</servlet-name>
+    <servlet-class>FileUploadHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadHandler</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

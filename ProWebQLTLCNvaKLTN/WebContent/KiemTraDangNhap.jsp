@@ -40,7 +40,7 @@
             <c:redirect url="ChucNangAdmin.jsp"/>
           </c:when>
           <c:otherwise>
-            <c:redirect url="DangNhap.jsp" >
+            <c:redirect url="DangNhap.jsp">
               <c:param name="errMsg" value="Tên đăng nhập/mật khẩu không tồn tại" />
             </c:redirect>
           </c:otherwise>

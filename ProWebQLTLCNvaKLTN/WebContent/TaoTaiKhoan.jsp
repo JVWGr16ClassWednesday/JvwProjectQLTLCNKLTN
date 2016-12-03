@@ -1,10 +1,5 @@
-<%@ taglib
-    prefix="c"
-    uri="http://java.sun.com/jsp/jstl/core" 
-%>
-
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,7 +21,7 @@
 	</style>
 </head>
 <body>
-	<form method="post" action="TaoTaiKhoan.jsp" accept-charset="utf-8" id="formTaoMoiTK">
+	<form method="post" action="${pageContext.request.contextPath}/CheckRegisterServlet" accept-charset="utf-8" id="formTaoMoiTK">
 		<div class="container">
         <div class="row">
             <img src="header.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
@@ -83,36 +78,14 @@
 	                    </div>
 	                    <input type="hidden" name="isSuccess" value="1"/>
 	                    <div class="panel-footer text-center">
-	                     	<!--<a href="" target="" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Tạo tài khoản</a> -->                     	
 	                     	<button id="TaoTK" class="btn btn-primary" type="submit">Tạo tài khoản</button>
-	                        <a href="Quanlytaikhoan.jsp" target="" class="btn btn-danger">Hủy</a>
+	                        <a href="TrangChu.jsp" target="" class="btn btn-danger">Hủy</a>
 	                    </div>
                 </div>
             </div>
         </div>
     </div>
 	</form>
-	<c:if test='${param.isSuccess=="1"}'>
-
-	<%@ page import ="java.sql.*" %>
-	<%
-	    String id = request.getParameter("id");    
-	    String name = request.getParameter("name");
-	    String email = request.getParameter("email");
-	    String role = request.getParameter("Check_Quyen");
-	    String password =request.getParameter("password");
-	    Class.forName("com.mysql.jdbc.Driver");
-	    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectweb",
-	            "root", "root");
-	    Statement st = con.createStatement();
-	    //ResultSet rs;
-	    int i = st.executeUpdate("insert into users(id, username, password, myname, accessright) values ('" + id + "','" + email + "','" + password + "','" + name + "','" + role + "')");
-	    if (i > 0) {
-	        out.print("<script type='text/javascript'>$(document).ready(function() {$('#myModal').modal({backdrop: 'static', keyboard: false});})</script>");
-	    }
-	%>
-		
-	</c:if>
 	
 	<script type="text/javascript">
 	$(document).ready(function() {

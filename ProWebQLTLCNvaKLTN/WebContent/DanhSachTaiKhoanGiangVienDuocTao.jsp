@@ -131,10 +131,10 @@
                     <label>Quyền hệ thống</label>
                     <br />
                     <br />
-                    <label><input type="checkbox" value="">Quyền Giảng Viên</label>
+                    <label><input type="radio" value="1">Quyền Giảng Viên</label>
                     <br />
                     <br />
-                    <label><input type="checkbox" value="">Quyền Sinh Viên</label>
+                    <label><input type="radio" value="2">Quyền Sinh Viên</label>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary">Sửa</button>
